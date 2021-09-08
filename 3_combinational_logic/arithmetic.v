@@ -1,6 +1,6 @@
 `timescale 1ns / 1ps
 
-module combinational_1(
+module arithmetic(
     input	[7:0] i_value_a,
     input	[7:0] i_value_b,
     output	[7:0] o_value_add,
@@ -23,6 +23,6 @@ module combinational_1(
     assign o_value_add = r_value_add;
     assign o_value_sub = r_value_sub;
     assign o_value_mul = r_value_mul;
-    assign o_value_div = r_value_div; 
+    assign o_value_div = r_value_div;
 
 endmodule
