@@ -1,6 +1,6 @@
 `timescale 1ns / 1ps
 
-module tb_d_ff;
+module tb_d_flip_flop;
 
 reg clk;
 reg clk_enable;
@@ -41,7 +41,7 @@ end
  
 wire clk_for_dut = clk && clk_enable;
 
-d_ff_test DUT(
+d_flip_flop DUT(
     .clk			(clk_for_dut),
     .sync_reset			(sync_reset),
     .async_reset		(async_reset),
