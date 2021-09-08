@@ -1,5 +1,5 @@
 `timescale 1ns / 1ps
- 
+
 module arithmetic(
     input	[7:0] i_value_a,
     input	[7:0] i_value_b,
