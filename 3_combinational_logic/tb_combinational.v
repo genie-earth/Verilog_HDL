@@ -1,6 +1,6 @@
 `timescale 1ns / 1ps
 
-module tb_combi_test;
+module tb_combinational;
 
 reg clk;	// no use
 
@@ -25,7 +25,7 @@ initial begin
 $finish;
 end
 
-combi_test_0 DUT_0(
+combinational_0 DUT_0(
     .i_value_a		(value_a),
     .i_value_b		(value_b),
     .o_value_add	(w_value_add_0),
@@ -34,7 +34,7 @@ combi_test_0 DUT_0(
     .o_value_div	(w_value_div_0)
 );
 
-combi_test_1 DUT_1(
+combinational_1 DUT_1(
     .i_value_a		(value_a),
     .i_value_b		(value_b),
     .o_value_add	(w_value_add_1),
