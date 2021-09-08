@@ -91,14 +91,7 @@ u_TDPBRAM(
     .ce0		(ce0), 
     .we0		(we0), 
     .q0			(q0), 
-    .d0			(d0), 
-
-// no use port B.
-    .addr1 		(0), 
-    .ce1		(0), 
-    .we1		(0),
-    .q1			(), 
-    .d1			(0)
+    .d0			(d0)
 );
 
 endmodule
