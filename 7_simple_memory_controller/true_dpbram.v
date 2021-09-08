@@ -1,3 +1,5 @@
+// Auto-generated from Viavdo HLS
+
 `timescale 1 ns / 1 ps
 
 module true_dpbram (
@@ -39,8 +41,8 @@ begin
     if (ce0) begin
         if (we0) 
             ram[addr0] <= d0;
-		else
-        	q0 <= ram[addr0];
+        else
+            q0 <= ram[addr0];
     end
 end
 
@@ -49,8 +51,8 @@ begin
     if (ce1) begin
         if (we1) 
             ram[addr1] <= d1;
-		else
-        	q1 <= ram[addr1];
+        else
+            q1 <= ram[addr1];
     end
 end
 
