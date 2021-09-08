@@ -64,7 +64,7 @@ module d_ff_test(
 	end
 
 // Assign
-	assign  o_value_sync_reset		= r_ff_sync_reset;
+    assign  o_value_sync_reset		= r_ff_sync_reset;
 	assign  o_value_async_reset		= r_ff_async_reset;
 	assign  o_value_async_reset_n	= r_ff_async_reset_n;
 	assign  o_value_mixed_reset		= r_ff_mixed_reset;
