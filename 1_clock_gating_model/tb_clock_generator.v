@@ -10,20 +10,20 @@ always
     #5 clk = ~clk;
  
 initial begin
-    clk     	= 0;
-	clock_en	= 0;
+    clk = 0;
+    clock_en = 0;
 # 100
-	clock_en	= 1;
+    clock_en = 1;
 # 100
-	clock_en	= 0;
+    clock_en = 0;
 # 100
 $finish;
 end
 
 clock_gating_model DUT(
-    .i_clk				(clk		),
-    .i_clock_en			(clock_en	),
-    .o_clk				(o_clk		) 
+    .i_clk	(clk		),
+    .i_clock_en	(clock_en	),
+    .o_clk	(o_clk		) 
     );
 
 endmodule
