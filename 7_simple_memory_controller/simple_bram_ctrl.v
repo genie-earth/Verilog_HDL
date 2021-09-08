@@ -118,11 +118,12 @@ always @(posedge clk or negedge reset_n) begin
     if(!reset_n) begin
         r_valid <= 0;  
     end else begin
-        r_valid <= o_read; // read data
+        r_valid <= o_read;						// valid data from memory can be used after 1 cycle of delay -> need to force latency
     end
 end
 
+// q0 <= ram[addr0]: Reading data from memory after 1 cycle (see true_dpbram.v)
 assign o_valid = r_valid;
-assign o_mem_data = q0;
+assign o_mem_data = q0;							// valid data from memory
 
 endmodule
