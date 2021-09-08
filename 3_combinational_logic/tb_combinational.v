@@ -42,5 +42,5 @@ combinational_1 DUT_1(
     .o_value_mul	(w_value_mul_1),
     .o_value_div	(w_value_div_1)
 );
- 
+
 endmodule
