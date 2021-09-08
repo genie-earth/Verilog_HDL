@@ -3,4 +3,4 @@
 
 ---
 ### Waveform
-![](https://github.com/genie-earth/Verilog_HDL/blob/main/waveform.jpg)
+![](https://github.com/genie-earth/Verilog_HDL/waveform.jpg)
