@@ -29,4 +29,5 @@ counter_100 u_counter_100(
     .o_cnt		(o_cnt),
     .o_cnt_always	(o_cnt_always)
     );
+ 
 endmodule
