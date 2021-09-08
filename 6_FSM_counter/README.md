@@ -10,6 +10,14 @@
 
 
 ---
+### Types of FSM
+* Mealy model: When determining the external output, both the input and the current state are affected.
+* Moore model: When determining the external output, the input does not intervene, and only the current state is considered.
+* The Mealy model is disadvantageous in timing or delay because the input can affect the output.
+* If the output does not go through F/F, malfunctions such as noise or glitch may occur.
+
+
+---
 ### Waveform
 ![](https://github.com/genie-earth/Verilog_HDL/blob/main/6_FSM_counter/waveform_1.jpg)
 ![](https://github.com/genie-earth/Verilog_HDL/blob/main/6_FSM_counter/waveform_2.jpg)
