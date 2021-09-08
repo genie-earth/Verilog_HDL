@@ -59,13 +59,13 @@ always @(*)
 begin
     n_state = c_state; // To prevent Latch.
     case(c_state)
-    S_IDLE	: if(i_run)
-        n_state = S_WRITE;
+    S_IDLE  : if(i_run)
+        n_state = S_WRITE;						// o_write becomes HIGH after 1 cycle, following that addr_cnt starts to increment.
     S_WRITE : if(is_write_done)
         n_state = S_READ;
     S_READ  : if(is_read_done)
         n_state = S_DONE;
-    S_DONE	: n_state = S_IDLE;
+    S_DONE  : n_state = S_IDLE;
     endcase
 end 
 
@@ -81,7 +81,7 @@ reg [AWIDTH-1:0] num_cnt;
 always @(posedge clk or negedge reset_n) begin
     if(!reset_n) begin
         num_cnt <= 0;  
-    end else if (i_run) begin
+    end else if (i_run) begin						// Initialize num_cnt at IDLE state while i_run becomes HIGH -> WRITE state after 1 cycle
         num_cnt <= i_num_cnt;
     end else if (o_done) begin
         num_cnt <= 0;
@@ -89,26 +89,25 @@ always @(posedge clk or negedge reset_n) begin
 end
 
 // Step 5. increased addr_cnt
-reg [AWIDTH-1:0] addr_cnt;  
-assign is_write_done = o_write && (addr_cnt == num_cnt-1);
-assign is_read_done  = o_read  && (addr_cnt == num_cnt-1);
+reg [AWIDTH-1:0] addr_cnt;  						// Memory address 
+assign is_write_done = o_write && (addr_cnt == num_cnt-1);		// addr_cnt = 99 during write -> is_write_done = 1 -> addr_cnt = 0 and READ state after 1 cycle
+assign is_read_done  = o_read  && (addr_cnt == num_cnt-1);		// addr_cnt = 99 during read -> is_Read_done = 1 -> addr_cnt = 0 and DONE state after 1 cycle
 
 always @(posedge clk or negedge reset_n) begin
     if(!reset_n) begin
         addr_cnt <= 0;  
-    end else if (is_write_done || is_read_done) begin
+    end else if (is_write_done || is_read_done) begin			// Initialize memory address if write or read operation has done.
         addr_cnt <= 0; 
-    end else if (o_write || o_read) begin
+    end else if (o_write || o_read) begin				// Increment memory address during write or read
         addr_cnt <= addr_cnt + 1;
     end
 end
 
 // Assign Memory I/F
-assign addr0	= addr_cnt;
-assign ce0	= o_write || o_read;
-assign we0	= o_write;
-assign d0	= addr_cnt;  // same value;
-
+assign addr0	= addr_cnt;						// addr0: Port 0 memory I/F address, the location to be written
+assign ce0	= o_write || o_read;					// ce0: Port 0 write/read enable signal
+assign we0	= o_write;						// we0: Port 0 write enable signal
+assign d0	= addr_cnt;						// d0: value to be written to memory -> same value as addr_cnt
 
 // output data from memory 
 reg			r_valid;
@@ -124,6 +123,6 @@ always @(posedge clk or negedge reset_n) begin
 end
 
 assign o_valid = r_valid;
-assign o_mem_data = q0;  // direct assign, bus Matbi recommends you to add a register for timing.
+assign o_mem_data = q0;
 
 endmodule
