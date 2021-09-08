@@ -11,6 +11,6 @@ module combinational_0(
     assign o_value_add = i_value_a + i_value_b;
     assign o_value_sub = i_value_a - i_value_b;
     assign o_value_mul = i_value_a * i_value_b;
-    assign o_value_div = i_value_a / i_value_b; // If need high freq, It is difficult synthesis
+    assign o_value_div = i_value_a / i_value_b; // If it needs high frequency, it is difficult to synthesis.
 
 endmodule
