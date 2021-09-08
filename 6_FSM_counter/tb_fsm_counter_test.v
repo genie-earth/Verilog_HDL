@@ -14,14 +14,12 @@ always
 
 initial begin
 //initialize value
-$display("initialize value [%d]", $time);
     reset_n = 1;
     clk     = 0;
     i_run 	= 0;
     i_num_cnt = 0;
 	
 // reset_n gen
-$display("Reset! [%d]", $time);
 # 100
     reset_n = 0;
 # 10
