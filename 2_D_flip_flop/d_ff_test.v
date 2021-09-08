@@ -39,8 +39,8 @@ module d_ff_test(
 // D_FF (Async reset_n)
     always @ (posedge clk or negedge async_reset_n) begin	// operate in response to LOW async_reset_n
         if(!async_reset_n) begin	// Prefer logical negation
-//    if(~async_reset_n) begin   
-//    if(async_reset_n == 1'b0) begin   
+//	if(~async_reset_n) begin   
+//	if(async_reset_n == 1'b0) begin   
             r_ff_async_reset_n <= 1'b0;
         end else begin
             r_ff_async_reset_n <= i_value;
@@ -48,7 +48,7 @@ module d_ff_test(
     end
 
 // D_FF (Mixed async/sync reset)
-    always @ (posedge clk or posedge async_reset) begin
+    always @ (posedge clk or posedge async_reset) begin		
         if(async_reset) begin		// async reset
             r_ff_mixed_reset <= 1'b0;
         end else if (sync_reset) begin	// sync reset
