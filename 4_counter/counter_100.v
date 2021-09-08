@@ -18,7 +18,7 @@ module counter_100(
 	
     assign o_cnt = cnt;
 
-    reg [6:0] cnt_always;				// To avoid overflow (range: 0~127) (2^7)
+    reg [6:0] cnt_always;				// To avoid overflow (range: 0~127)
     always @(posedge clk or negedge reset_n) begin
         if(!reset_n) begin
             cnt_always <= 0;  				// Counting start from zero
