@@ -1,12 +1,12 @@
 `timescale 1ns / 1ps
 
 module fsm_counter_test(
-    input 		    clk,
-    input 		    reset_n,
-    input 		    i_run,
-    input  [6:0]	i_num_cnt,
-    output   		o_idle,
-    output   		o_running,
+    input		clk,
+    input		reset_n,
+    input		i_run,
+    input	[6:0]	i_num_cnt,
+    output		o_idle,
+    output		o_running,
     output reg		o_done		);
 
 /////// Local Param. to define state ////////
