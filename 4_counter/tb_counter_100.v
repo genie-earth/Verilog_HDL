@@ -1,4 +1,4 @@
-timescale 1ns / 1ps
+`timescale 1ns / 1ps
 
 module tb_counter_100;
 reg clk , reset_n;
@@ -24,9 +24,9 @@ end
  
 // Call DUT
 counter_100 u_counter_100(
-    .clk (clk),
-    .reset_n (reset_n),
-    .o_cnt(o_cnt),
-    .o_cnt_always(o_cnt_always)
+    .clk		(clk),
+    .reset_n 		(reset_n),
+    .o_cnt		(o_cnt),
+    .o_cnt_always	(o_cnt_always)
     );
 endmodule
