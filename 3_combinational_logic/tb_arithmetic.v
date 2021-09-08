@@ -19,7 +19,7 @@ initial begin
 #50
 $finish;
 end
-
+ 
 arithmetic DUT(
     .i_value_a		(value_a),
     .i_value_b		(value_b),
