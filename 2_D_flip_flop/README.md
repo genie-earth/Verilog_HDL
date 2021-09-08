@@ -1,4 +1,4 @@
-# Clock_gating_model
+# D_flip_flop
 
 
 ---
