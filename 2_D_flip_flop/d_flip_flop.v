@@ -1,6 +1,6 @@
 `timescale 1ns / 1ps
 
-module d_ff_test(
+module d_flip_flop(
     input	clk,
     input	sync_reset,
     input	async_reset,
