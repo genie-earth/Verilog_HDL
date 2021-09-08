@@ -1,6 +1,6 @@
 `timescale 1ns / 1ps
 
-module combi_test_0(
+module combinational_0(
     input	[7:0] i_value_a,
     input	[7:0] i_value_b,
     output	[7:0] o_value_add,
