@@ -38,9 +38,9 @@ begin
     n_state = S_IDLE;               // To prevent latch because if c_state = 2'b11 then n_state tries to save previous state, leading to generate latch.
     case(c_state)
     S_IDLE: if(i_run)
-        n_state = S_RUN;            // When the run signal is applied to IDLE state, next state becomes a RUN state.
+        n_state = S_RUN;            // i_run = 1 -> next state becomes RUN -> current state becomes RUN after 1 cycle, while o_running becomes HIGH.
     S_RUN : if(is_done)
-        n_state = S_DONE;           // When the done signal is applied to RUN state, next state becomes a DONE state.
+        n_state = S_DONE;           // cnt_always = 99 -> is_done = 1 -> next state becomes DONE -> current state becomes DONE after 1 cycle, while o_done becomes HIGH.
     else 
         n_state = S_RUN;            // To wait is_done.
     S_DONE: n_state = S_IDLE;       // Next state becomes IDLE state after 1 cycle of DONE state.
@@ -58,8 +58,8 @@ begin
 end
 
 // Added to communicate with control signals.
-assign o_idle 		= (c_state == S_IDLE);      // Output o_idle becomes 1 during IDLE state. (Moore model)
-assign o_running 	= (c_state == S_RUN);       // Output o_running becomes 1 during RUN state. (Moore model)
+assign o_idle 		= (c_state == S_IDLE);		// Output o_idle becomes 1 during IDLE state. (Moore model)
+assign o_running 	= (c_state == S_RUN);		// Output o_running becomes 1 during RUN state. (Moore model)
  
 // Step 4. Registering (Capture) number of Count
 reg [6:0] num_cnt;
@@ -67,21 +67,21 @@ always @(posedge clk or negedge reset_n) begin
     if(!reset_n) begin
         num_cnt <= 0;
     end else if (i_run) begin
-        num_cnt <= i_num_cnt;
+        num_cnt <= i_num_cnt;                   	// Number of count is initialized with positive edge i_run.
     end else if (o_done) begin
         num_cnt <= 0;
     end
 end
 
 // Step 5. Core (Counter)
-reg [6:0] cnt_always;  
-assign is_done = o_running && (cnt_always == num_cnt-1);
+reg [6:0] cnt_always;
+assign is_done = o_running && (cnt_always == num_cnt-1);	// is_done becomes HIGH during cnt_always 98 -> 99
 
 always @(posedge clk or negedge reset_n) begin
     if(!reset_n) begin
         cnt_always <= 0;  
     end else if (is_done) begin
-        cnt_always <= 0; 
+        cnt_always <= 0;
     end else if (o_running) begin
         cnt_always <= cnt_always + 1;
     end
