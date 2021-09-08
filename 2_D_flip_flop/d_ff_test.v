@@ -10,8 +10,7 @@ module d_ff_test(
     output  	o_value_async_reset,
     output  	o_value_async_reset_n,
     output  	o_value_mixed_reset,
-    output  	o_value_no_reset
-    );
+    output  	o_value_no_reset);
 
     reg  r_ff_sync_reset;
     reg  r_ff_async_reset;
