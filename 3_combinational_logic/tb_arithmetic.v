@@ -1,6 +1,6 @@
 `timescale 1ns / 1ps
 
-module tb_combinational;
+module tb_arithmetic;
 
 reg clk;	// no use
 
@@ -20,7 +20,7 @@ initial begin
 $finish;
 end
 
-combinational DUT(
+arithmetic DUT(
     .i_value_a		(value_a),
     .i_value_b		(value_b),
     .o_value_add	(w_value_add),
