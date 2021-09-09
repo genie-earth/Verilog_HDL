@@ -20,4 +20,4 @@
 ### Waveform
 ![](https://github.com/genie-earth/Verilog_HDL/blob/main/7_simple_memory_controller/waveform_1.jpg)
 ![](https://github.com/genie-earth/Verilog_HDL/blob/main/7_simple_memory_controller/waveform_2.jpg)
-![](https://github.com/genie-earth/Verilog_HDL/blob/main/7_simple_memory_controller/waveform_3.jpg)
+![](https://github.com/genie-earth/Verilog_HDL/blob/main/7_simple_memory_controller/waveform_3.jpg) 
