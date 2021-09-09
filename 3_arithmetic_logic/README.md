@@ -8,4 +8,4 @@
 
 ---
 ### Waveform
-![](https://github.com/genie-earth/Verilog_HDL/blob/main/3_arithmetic_logic/waveform.jpg) 
+![](https://github.com/genie-earth/Verilog_HDL/blob/main/3_arithmetic_logic/waveform.jpg)
