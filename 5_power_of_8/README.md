@@ -3,7 +3,7 @@
 
 ---
 ### Pipelining
-* A structure in which the output of data is connected to the next level of input. 
+* A structure in which the output of data is connected to the next level of input.
 * A buffer (D F/F) is used to relay the input/output of each step.
 * First input signal has an output of eight squares after three cycles. (Latency = 3)
 * From then on, the result of the eight square comes out every cycle. (Throughput = 1)
